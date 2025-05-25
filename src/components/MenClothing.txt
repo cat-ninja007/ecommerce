@@ -4,8 +4,6 @@
     <div class="bg-light-blue"></div>
     <div class="bg-pattern"></div>
     <div class="content-box">
-      <!-- Konten di dalam kotak -->
-      <!-- <h1>Konten Utama</h1> -->
        <div class="content">
         <div class="product-image-container">
           <img src="../assets//images/image 2.png" alt="">
@@ -34,7 +32,7 @@
           </div>
           <div class="button-container">
             <button class="buy-now-button">Buy Now</button>
-            <button class="next-product-button">Next Product</button>
+            <button id="next-product" class="next-product-button">Next Product</button>
           </div>
         </div>
        </div>
@@ -44,6 +42,7 @@
 
 <script>
 import '../assets/styles/color.css'
+
 
 export default {
   name: 'CustomLayout',
@@ -56,10 +55,9 @@ export default {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-color: var(--ecommerce-white); /* fallback */
+  background-color: var(--ecommerce-white); 
 }
 
-/* Lapisan 1 - Putih */
 .bg-white {
   position: absolute;
   top: 0;
@@ -70,7 +68,7 @@ export default {
   z-index: 1;
 }
 
-/* Lapisan 2 - Biru Muda (menyisakan 35%) */
+
 .bg-light-blue {
   position: absolute;
   top: 0;
@@ -81,7 +79,7 @@ export default {
   z-index: 2;
 }
 
-/* Lapisan 3 - Pattern Image (menyisakan 20%) */
+
 .bg-pattern {
   position: absolute;
   top: 0;
@@ -92,10 +90,10 @@ export default {
   background-size: cover;
   background-position: center;
   z-index: 3;
-  opacity: 0.8; /* opsional, kalau ingin transparan */
+  opacity: 0.8; 
 }
 
-/* Lapisan 4 - Kotak Konten */
+
 .content-box {
   position: absolute;
   top: 50%;
@@ -108,7 +106,7 @@ export default {
   box-shadow: 2px 4px 21px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   border-radius: 10px;
-  /* text-align: center; */
+  
 }
 
 .content {
@@ -117,7 +115,6 @@ export default {
   align-items: center;
   height: 100%;
   padding: 0 1rem;
-  /* border: 2px solid red; */
   gap: 76px;
 }
 
@@ -187,7 +184,7 @@ export default {
 }
 
 .button-container {
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   display: flex;
   justify-content: space-between;
   gap: 20px;
@@ -205,6 +202,7 @@ export default {
   background-color: var(--ecommerce-dark-blue);
   color: var(--ecommerce-white);
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .next-product-button {
@@ -219,5 +217,6 @@ export default {
   background-color: var(--ecommerce-white);
   color: var(--ecommerce-dark-blue);
   border-radius: 4px;
+  cursor: pointer;
 }
 </style>
