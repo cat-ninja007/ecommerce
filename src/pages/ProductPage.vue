@@ -1,6 +1,7 @@
 <template>
   <DefaultLayout :product="product">
     <div class="content-box">
+      <div v-if="loading" class="loader" :style="{ borderTopColor: categoryColor }"></div> 
       <div v-if="product && isValidCategory" class="content">
         <div class="product-image-container">
           <img class="product-image" :src="product.image" alt="Product Image" />
@@ -60,6 +61,7 @@ export default {
       product: null,
       isValidCategory: false,
       totalProducts: 0, 
+      loading: true
     };
   },
   computed: {
@@ -87,6 +89,7 @@ export default {
     },
     fetchProduct() {
       const productId = this.$route.params.id;
+      this.loading = true;
       fetch(`https://fakestoreapi.com/products/${productId}`)
         .then((response) => {
           if (!response.ok) {
@@ -103,6 +106,9 @@ export default {
           console.error("There has been a problem with your fetch operation:", error);
           this.product = null;
           this.isValidCategory = false;
+        })
+        .finally(() => {
+          this.loading = false; 
         });
     },
     fetchTotalProducts() {
@@ -282,5 +288,24 @@ export default {
   border: 2px solid var(--ecommerce-dark-blue);
   border-radius: 50%;
   background-color: transparent;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; 
+  border-top: 16px solid #3498db; 
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  z-index: 5; 
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 </style>
