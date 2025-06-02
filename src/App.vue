@@ -1,41 +1,41 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <!-- <MenClothing /> -->
-    <ProductLayout />
-
+    <router-view />
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import MenClothing from './components/MenClothing.vue';
-import ProductLayout from './components/ProductLayout.vue';
-
-
 export default {
   name: 'App',
-  components: {
-    ProductLayout
-    // MenClothing
-    // HelloWorld
-  }
-}
+};
 </script>
 
-<style>
-*{
+<style scoped>
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
   color: #2c3e50;
-  /* margin-top: 60px; */
+}
+
+nav {
+  padding: 1rem;
+  background-color: #f0f0f0;
+}
+
+router-link {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #42b983;
+}
+
+router-link:hover {
+  text-decoration: underline;
 }
 </style>
